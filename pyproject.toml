@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "uitests-saucedemo"
+version = "0.1.0"
+description = ""
+authors = ["kris-zvereva <krs.zvrv@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.27.1"
+pytest = "^8.3.4"
+pytest-xdist = "^3.6.1"
+allure-pytest = "^2.13.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
