@@ -2,6 +2,7 @@ from behave import *
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+from features.locators.products_page import ProductsPageLocators
 from features.page_model.shopping_cart_page import ShoppingCartPage
 
 use_step_matcher('re')

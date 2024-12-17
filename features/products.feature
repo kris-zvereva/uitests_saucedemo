@@ -35,8 +35,16 @@ Feature: Inventory page functionalities
     And I see no "Sauce Labs Bike Light" item in the cart
 
   Scenario: User is able to filter items by name (A-Z)
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I select "Name (A to Z)" option in filter dropdown
+    Then I see products sorted from A to Z
 
   Scenario: User is able to filter items by name (Z-A)
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I select "Name (Z to A)" option in filter dropdown
+    Then I see products sorted from Z to A
 
   Scenario: User is able to filter items by price (low to high)
 

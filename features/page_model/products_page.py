@@ -56,3 +56,21 @@ class ProductsPage:
         """
         counter_element = self.browser.find_element(*ProductsPageLocators.SHOPPING_CART_COUNTER)
         return int(counter_element.text)
+
+    def select_filter_option(self, filter_name):
+        self.browser.find_element(*ProductsPageLocators.FILTER_DROPDOWN_MENU).click()
+        option_locator = ProductsPageLocators.FILTER_OPTIONS.get(filter_name)
+        self.browser.find_element(*option_locator).click()
+
+    def get_product_names(self):
+        # Get all the product names as a list of strings
+        product_elements = self.browser.find_elements(*ProductsPageLocators.PRODUCT_TITLE)
+        return [product.text for product in product_elements]
+
+    def are_products_sorted_ascending(self):
+        product_names = self.get_product_names()
+        return product_names == sorted(product_names)
+
+    def are_products_sorted_descending(self):
+        product_names = self.get_product_names()
+        return product_names == sorted(product_names, reverse=True)

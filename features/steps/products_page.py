@@ -81,6 +81,17 @@ def step_impl(context):
     cart_button = context.browser.find_element(*ProductsPageLocators.SHOPPING_CART_ICON)
     cart_button.click()
 
+@when('I select "(.*)" option in filter dropdown')
+def step_impl(context, filter_option):
+    context.ProductsPage.select_filter_option(filter_option)
+
+@then('I see products sorted from A to Z')
+def step_impl(context):
+    assert context.ProductsPage.are_products_sorted_ascending()
+
+@then('I see products sorted from Z to A')
+def step_impl(context):
+    assert context.ProductsPage.are_products_sorted_descending()
 
 
 
