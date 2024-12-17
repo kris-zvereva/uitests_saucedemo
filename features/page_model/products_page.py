@@ -89,10 +89,8 @@ class ProductsPage:
 
     def are_product_prices_sorted_ascending(self):
         product_prices = self.get_numeric_prices()
-        print(product_prices)
         return product_prices == sorted(product_prices)
 
     def are_product_prices_sorted_descending(self):
         product_prices = self.get_numeric_prices()
-        print(product_prices)
         return product_prices == sorted(product_prices, reverse=True)
