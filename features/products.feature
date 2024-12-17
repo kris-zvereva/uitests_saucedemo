@@ -15,4 +15,31 @@ Feature: Inventory page functionalities
     And I see the filter dropdown menu
     And I see a list of items with titles, prices, descriptions, images and "add to cart" buttons
 
+  Scenario: User is able to add an item to the cart
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I click "Add to the cart" button on "sauce-labs-backpack" item
+    Then I see the shopping cart counter value as "1"
+    Then I click on shopping cart icon
+    And I am on shopping cart page
+    And I see "Sauce Labs Backpack" item in the cart
+
+  Scenario: User is able to delete an item from the cart
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I click "Add to the cart" button on "sauce-labs-bike-light" item
+    Then I click "Remove" button on "sauce-labs-bike-light" item
+    And Shopping cart counter is not displayed
+    Then I click on shopping cart icon
+    And I am on shopping cart page
+    And I see no "Sauce Labs Bike Light" item in the cart
+
+  Scenario: User is able to filter items by name (A-Z)
+
+  Scenario: User is able to filter items by name (Z-A)
+
+  Scenario: User is able to filter items by price (low to high)
+
+  Scenario: User is able to filter items by price (high to low)
+
 

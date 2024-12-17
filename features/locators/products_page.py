@@ -4,6 +4,7 @@ class ProductsPageLocators:
     PAGE_TITLE = (By.CLASS_NAME, "app_logo")
     BURGER_MENU_ICON = (By.CSS_SELECTOR, '[data-test="open-menu"]')
     SHOPPING_CART_ICON = (By.CSS_SELECTOR, '[data-test="shopping-cart-link"]')
+    SHOPPING_CART_COUNTER = (By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]')
     FILTER_DROPDOWN_MENU = (By.CSS_SELECTOR, '[data-test="product-sort-container"]')
     INVENTORY_LIST = (By.CSS_SELECTOR, '[data-test="inventory-list"]')
 
@@ -14,4 +15,5 @@ class ProductsPageLocators:
     PRODUCT_DESCRIPTION = (By.CSS_SELECTOR, '[data-test="inventory-item-desc"]')
     # Locator for "Add to Cart" buttons, matching any element with a 'data-test' attribute starting with 'add-to-cart-'
     ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, '[data-test^="add-to-cart-"]')
+    REMOVE_BUTTON = (By.CSS_SELECTOR, '[data-test^="remove-"]')
     PRODUCT_IMAGE = (By.CLASS_NAME, "inventory_item_img")

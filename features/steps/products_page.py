@@ -60,5 +60,27 @@ def step_impl(context):
 def step_impl(context):
     assert context.browser.current_url == "https://www.saucedemo.com/"
 
+@when('I click "Add to the cart" button on "(.*)" item')
+def step_impl(context, product_name):
+    context.ProductsPage.click_add_to_cart(product_name)
+
+@then('I click "Remove" button on "(.*)" item')
+def step_impl(context, product_name):
+    context.ProductsPage.click_remove_from_cart(product_name)
+
+@then('Shopping cart counter is not displayed')
+def step_impl(context):
+    assert not context.ProductsPage.is_element_visible(ProductsPageLocators.SHOPPING_CART_COUNTER)
+
+@then('I see the shopping cart counter value as "(.*)"')
+def step_impl(context, item_counter):
+    assert int(item_counter) == context.ProductsPage.get_shopping_cart_counter_value()
+
+@then('I click on shopping cart icon')
+def step_impl(context):
+    cart_button = context.browser.find_element(*ProductsPageLocators.SHOPPING_CART_ICON)
+    cart_button.click()
+
+
 
 
