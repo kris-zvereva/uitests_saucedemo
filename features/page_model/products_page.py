@@ -1,3 +1,5 @@
+from audioop import reverse
+
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from features.locators.products_page import ProductsPageLocators
@@ -74,3 +76,23 @@ class ProductsPage:
     def are_products_sorted_descending(self):
         product_names = self.get_product_names()
         return product_names == sorted(product_names, reverse=True)
+
+    def get_product_prices(self):
+        # Get all the product names as a list of strings
+        product_elements = self.browser.find_elements(*ProductsPageLocators.PRODUCT_PRICE)
+        return [product.text for product in product_elements]
+
+    def get_numeric_prices(self):
+        # Convert price strings to numeric values
+        prices = self.get_product_prices()
+        return [float(price.replace('$', '')) for price in prices]
+
+    def are_product_prices_sorted_ascending(self):
+        product_prices = self.get_numeric_prices()
+        print(product_prices)
+        return product_prices == sorted(product_prices)
+
+    def are_product_prices_sorted_descending(self):
+        product_prices = self.get_numeric_prices()
+        print(product_prices)
+        return product_prices == sorted(product_prices, reverse=True)

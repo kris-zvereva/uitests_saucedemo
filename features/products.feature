@@ -47,7 +47,14 @@ Feature: Inventory page functionalities
     Then I see products sorted from Z to A
 
   Scenario: User is able to filter items by price (low to high)
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I select "Price (low to high)" option in filter dropdown
+    Then I see products sorted by price from low to high
 
   Scenario: User is able to filter items by price (high to low)
-
+    Given I am logged in as "standard_user"
+    And I am on the products page
+    When I select "Price (high to low)" option in filter dropdown
+    Then I see products sorted by price from high to low
 

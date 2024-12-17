@@ -93,5 +93,12 @@ def step_impl(context):
 def step_impl(context):
     assert context.ProductsPage.are_products_sorted_descending()
 
+@then('I see products sorted by price from low to high')
+def step_impl(context):
+    assert context.ProductsPage.are_product_prices_sorted_ascending()
+
+@then('I see products sorted by price from high to low')
+def step_impl(context):
+    assert context.ProductsPage.are_product_prices_sorted_descending()
 
 
