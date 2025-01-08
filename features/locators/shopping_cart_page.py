@@ -6,6 +6,7 @@ class ShoppingCartPageLocators:
     SHOPPING_CART_COUNTER = (By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]')
     BURGER_MENU_ICON = (By.CSS_SELECTOR, '[data-test="open-menu"]')
     CART_LIST = (By.CSS_SELECTOR, '[data-test="cart-list"]')
+    CART_ITEM = (By.CSS_SELECTOR, '[data-test="inventory-item"]')
 
     PRODUCT_TITLE = (By.CSS_SELECTOR, '[data-test="inventory-item-name"]')
     PRODUCT_PRICE = (By.CSS_SELECTOR, '[data-test="inventory-item-price"]')

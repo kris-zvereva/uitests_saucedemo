@@ -21,6 +21,8 @@ class ShoppingCartPage:
         :param product_name: Unique identifier of the product (e.g., 'sauce-labs-backpack').
         :return: Tuple locator for the specific button.
         """
-        return By.XPATH, f'//div[@class="cart_item"]//*[contains(text(), "{product_title}")]'
+        return By.XPATH, f'//div[@class="inventory_item_name" and contains(text(), "{product_title}")]'
+
+
 
 
