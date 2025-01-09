@@ -37,3 +37,17 @@ def step_impl(context, item_title):
 @then('I see shopping cart is empty')
 def step_impl(context):
     assert not context.ShoppingCartPage.is_element_visible(ShoppingCartPageLocators.CART_ITEM)
+
+@when('I try to go to the shopping cart page')
+def step_impl(context):
+    context.browser.get(ShoppingCartPage.url)
+
+@then('I see the shopping page title')
+def step_impl(context):
+    assert context.ShoppingCartPage.is_element_visible(ShoppingCartPageLocators.SHOPPING_PAGE_TITLE)
+
+@then('I see "(.*)" element')
+def step_impl(context, element_name):
+    element = context.ShoppingCartPage.get_item_locator(element_name)
+    assert context.ShoppingCartPage.is_element_visible(element)
+

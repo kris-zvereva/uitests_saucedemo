@@ -52,7 +52,7 @@ def step_impl(context):
         assert context.ProductsPage.is_element_visible(ProductsPageLocators.PRODUCT_IMAGE)
         assert context.ProductsPage.is_element_visible(ProductsPageLocators.ADD_TO_CART_BUTTON)
 
-@when('I try to go to the inventory page')
+@when('I try to go to the inventory page')  #TODO: can it be usable for all such validations?
 def step_impl(context):
     context.browser.get(ProductsPage.url)
 
