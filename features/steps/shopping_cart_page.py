@@ -1,6 +1,4 @@
-import time
-from asyncio import wait_for
-from os import wait4
+from tabnanny import check
 
 from behave import *
 from selenium import webdriver
@@ -23,6 +21,16 @@ def step_impl(context):
     cart_button = context.browser.find_element(*ProductsPageLocators.SHOPPING_CART_ICON)
     cart_button.click()
 
+@then('I click "Continue Shopping" button')
+def step_impl(context):
+    cont_button = context.browser.find_element(*ShoppingCartPageLocators.CONTINUE_SHOPPING_BUTTON)
+    cont_button.click()
+
+@then('I click "Checkout" button')
+def step_impl(context):
+    check_button = context.browser.find_element(*ShoppingCartPageLocators.CHECKOUT_BUTTON)
+    check_button.click()
+
 @then('I see "(.*)" item in the cart')
 def step_impl(context, item_title):
     item = context.ShoppingCartPage.get_item_locator(item_title)
@@ -42,12 +50,7 @@ def step_impl(context):
 def step_impl(context):
     context.browser.get(ShoppingCartPage.url)
 
-@then('I see the shopping page title')
+@then('I click "Remove" button')
 def step_impl(context):
-    assert context.ShoppingCartPage.is_element_visible(ShoppingCartPageLocators.SHOPPING_PAGE_TITLE)
-
-@then('I see "(.*)" element')
-def step_impl(context, element_name):
-    element = context.ShoppingCartPage.get_item_locator(element_name)
-    assert context.ShoppingCartPage.is_element_visible(element)
-
+    button = context.browser.find_element(*ShoppingCartPageLocators.REMOVE_BUTTON)
+    button.click()

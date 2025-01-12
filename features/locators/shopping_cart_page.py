@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class ShoppingCartPageLocators:
-    SHOPPING_PAGE_TITLE = (By.CLASS_NAME, "app_logo")  #TODO: rewrite common elements to a diff page
+    SHOPPING_PAGE_TITLE = (By.XPATH, '//div[@class="app_logo" and contains(text(), "Swag Labs")]')  #TODO: rewrite common elements to a diff page
     SHOPPING_CART_ICON = (By.CSS_SELECTOR, '[data-test="shopping-cart-link"]')
     SHOPPING_CART_COUNTER = (By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]')
     BURGER_MENU_ICON = (By.CSS_SELECTOR, '[data-test="open-menu"]')
