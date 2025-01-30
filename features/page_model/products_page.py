@@ -1,5 +1,3 @@
-from audioop import reverse
-
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from features.locators.products_page import ProductsPageLocators
